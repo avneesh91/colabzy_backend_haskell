@@ -10,34 +10,6 @@ extra-source-files:
 - README.md
 - ChangeLog.md
 
-#mport qualified Network.Wai.Handler.Warp as Warp
-#   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-#
-#   /home/mightymosquito/Work/colabzy_app/colabzy/src/Colabzy/Views.hs:12:1: error:
-#       Could not find module ‘Network.Wait.Handler.WebSockets’
-#           Use -v to see a list of the files searched for.
-#              |
-#              11 | import qualified Network.Wai.Handler.Warp as Warp
-#                 | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-#
-#                 /home/mightymosquito/Work/colabzy_app/colabzy/src/Colabzy/Views.hs:12:1: error:
-#                     Could not find module ‘Network.Wait.Handler.WebSockets’
-#                         Use -v to see a list of the files searched for.
-#                            |
-#                            11 | import qualified Network.Wai.Handler.Warp as Warp
-#                               | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-#
-#                               /home/mightymosquito/Work/colabzy_app/colabzy/src/Colabzy/Views.hs:12:1: error:
-#                                   Could not find module ‘Network.Wait.Handler.WebSockets’
-#                                       Use -v to see a list of the files searched for.
-#                                          |
-#                                          Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
 description:         Please see the README on GitHub at <https://github.com/githubuser/colabzy#readme>
 
 dependencies:
