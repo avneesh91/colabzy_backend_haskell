@@ -2,6 +2,10 @@
 -- But also gives out error messages about not owning this file.
 -- Look for such warnings and make sure that you read them.
 
+
+-- We enable OverloadedString extension by default
+:set -XOverloadedStrings
+
 -- Show loaded modules in window title and use a green "λ>" as prompt.
 -- Subsequent lines of multi-line commands shall begin with " |".
 :set prompt  "\SOH\ESC]0;GHCi: %s\BEL\ESC[32;1m\STXλ>\SOH\ESC[0m\STX "
