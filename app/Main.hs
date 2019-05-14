@@ -21,13 +21,11 @@ baseApp :: IO Wai.Application
 baseApp = do
     logger <- liftIO $ mkRequestLogger def { outputFormat = Apache FromHeader }
     SC.scottyApp $ do
-        --SC.middleware $ GZ.gzip $ GZ.def {GZ.gzipFiles = GZ.GzipCompress }
+        SC.middleware $ GZ.gzip $ GZ.def {GZ.gzipFiles = GZ.GzipCompress }
         SC.middleware logger
-        SC.middleware $ staticPolicy (noDots >-> addBase "static")
+        SC.middleware $ staticPolicy (noDots >-> addBase "build")
         
-
-        SC.get "/" $ SC.file "build/index.html"
-        SC.get "/static" $ SC.file "./build/static/"
+        SC.get "/" $ SC.file "./build/index.html"
     
 
 main :: IO()
