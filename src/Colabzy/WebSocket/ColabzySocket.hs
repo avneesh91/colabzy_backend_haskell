@@ -19,7 +19,7 @@ import qualified Network.Wai.Handler.WebSockets as WaiWs
 wsapp :: WS.ServerApp
 wsapp pending = do
     conn <- WS.acceptRequest pending
-    WS.forkPingThread conn 30
+    --WS.forkPingThread conn 30
 
     msg <- WS.receiveData conn
     WS.sendTextData conn $ ("initial> " :: Text) <> msg
@@ -27,5 +27,3 @@ wsapp pending = do
     forever $ do
         WS.sendTextData conn $ ("Loop Data" :: Text)
         threadDelay $ 1 * 1000
-
-    putStrLn "Disconnected"
