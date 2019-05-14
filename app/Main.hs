@@ -23,7 +23,7 @@ baseApp = do
     SC.scottyApp $ do
         --SC.middleware $ GZ.gzip $ GZ.def {GZ.gzipFiles = GZ.GzipCompress }
         SC.middleware logger
-        SC.middleware static
+        SC.middleware $ staticPolicy (noDots >-> addBase "static")
         
 
         SC.get "/" $ SC.file "build/index.html"
