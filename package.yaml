@@ -1,0 +1,77 @@
+name:                colabzy
+version:             0.1.0.0
+github:              "githubuser/colabzy"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2019 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+#mport qualified Network.Wai.Handler.Warp as Warp
+#   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#
+#   /home/mightymosquito/Work/colabzy_app/colabzy/src/Colabzy/Views.hs:12:1: error:
+#       Could not find module ‘Network.Wait.Handler.WebSockets’
+#           Use -v to see a list of the files searched for.
+#              |
+#              11 | import qualified Network.Wai.Handler.Warp as Warp
+#                 | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#
+#                 /home/mightymosquito/Work/colabzy_app/colabzy/src/Colabzy/Views.hs:12:1: error:
+#                     Could not find module ‘Network.Wait.Handler.WebSockets’
+#                         Use -v to see a list of the files searched for.
+#                            |
+#                            11 | import qualified Network.Wai.Handler.Warp as Warp
+#                               | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#
+#                               /home/mightymosquito/Work/colabzy_app/colabzy/src/Colabzy/Views.hs:12:1: error:
+#                                   Could not find module ‘Network.Wait.Handler.WebSockets’
+#                                       Use -v to see a list of the files searched for.
+#                                          |
+#                                          Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/colabzy#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- scotty >= 0.11.4
+- text >= 1.2.3.1
+- wai >= 3.2.2
+- wai-extra >= 3.0.26
+- network >= 2.8.0.1
+- warp >= 3.2.2
+- websockets >= 0.12.5.3
+- wai-websockets >= 3.0.1.2
+- data-default >= 0.7.1.1
+library:
+  source-dirs: src
+
+executables:
+  colabzy-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - colabzy
+
+tests:
+  colabzy-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - colabzy
