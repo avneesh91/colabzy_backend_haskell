@@ -10,7 +10,7 @@ import Control.Monad.IO.Class
 import Network.Wai.Middleware.RequestLogger
 import Network.Wai.Middleware.Static
 import qualified Web.Scotty as SC
-import qualified Colabzy.Views as CZV
+import qualified Colabzy.WebSocket.ColabzySocket as CCS
 import qualified Network.Wai.Handler.Warp as Warp
 import qualified Network.Wai.Handler.WebSockets as WaiWs
 import qualified Network.WebSockets as WS
@@ -33,4 +33,4 @@ main = do
     let port = 3000
     let settings = Warp.setPort port Warp.defaultSettings
     sapp <- baseApp
-    Warp.runSettings settings $ WaiWs.websocketsOr WS.defaultConnectionOptions CZV.wsapp sapp
+    Warp.runSettings settings $ WaiWs.websocketsOr WS.defaultConnectionOptions CCS.wsapp sapp

@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Colabzy.Views where
+module Colabzy.WebSocket.ColabzySocket where
 
 import Data.Text
 import Control.Monad
@@ -24,7 +24,8 @@ wsapp pending = do
     msg <- WS.receiveData conn
     WS.sendTextData conn $ ("initial> " :: Text) <> msg
 
-
     forever $ do
         WS.sendTextData conn $ ("Loop Data" :: Text)
-        threadDelay $ 1 * 10000
+        threadDelay $ 1 * 1000
+
+    putStrLn "Disconnected"
