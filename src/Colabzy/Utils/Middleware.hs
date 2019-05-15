@@ -11,16 +11,8 @@ import qualified Network.Wai.Middleware.Gzip as MGZ
 import qualified Network.Wai.Middleware.RequestLogger as MLG
 
 
---compressionMiddleware :: M.Middlware
+compressionMiddleware :: WA.Middleware
 compressionMiddleware = MGZ.gzip $ MGZ.def {MGZ.gzipFiles = MGZ.GzipCompress}
-
-
---loggerMiddleware :: SC.Middleware
-loggerMiddleware =  MLG.mkRequestLogger DF.def { MLG.outputFormat = MLG.Apache MLG.FromHeader }
-
 
 staticMiddleware :: WA.Middleware
 staticMiddleware = MS.staticPolicy (MS.noDots MS.>-> MS.addBase "build")
-
-
-
