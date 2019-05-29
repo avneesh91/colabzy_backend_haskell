@@ -37,7 +37,7 @@ baseApp = do
         SC.get "/editor" $ SC.file "./build/index.html"
 
         -- Rest APIs
-        SC.get "/newMeeting" $ VI.foo VI.serveMeetingId
+        SC.get "/newMeeting" $ VI.getAction VI.serveMeetingId
     
 
 main :: IO()

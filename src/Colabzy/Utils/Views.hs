@@ -10,8 +10,8 @@ import qualified Data.UUID as UUID
 import qualified Data.UUID.V4 as V4
 
 
-foo :: IO (SC.ActionM ()) -> SC.ActionM ()
-foo = join . IOM.liftIO
+getAction :: IO (SC.ActionM ()) -> SC.ActionM ()
+getAction = join . IOM.liftIO
 
 
 serveMeetingId :: IO(SC.ActionM ())
