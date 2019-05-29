@@ -6,6 +6,7 @@ import Web.Scotty as SC
 import Data.Monoid (mconcat)
 
 import Data.Default
+import Control.Monad
 import Control.Monad.IO.Class
 import Network.Wai.Middleware.RequestLogger
 import Network.Wai.Middleware.Static
@@ -17,6 +18,7 @@ import qualified Network.Wai.Handler.WebSockets as WaiWs
 import qualified Network.WebSockets as WS
 import qualified Network.Wai.Middleware.Gzip as GZ
 import qualified Network.Wai as Wai
+import qualified Colabzy.Utils.Views as VI
 
 baseApp :: IO Wai.Application
 baseApp = do
@@ -30,7 +32,12 @@ baseApp = do
         SC.middleware ML.compressionMiddleware
         SC.middleware ML.staticMiddleware
 
+        -- Backend paths for serving shit
         SC.get "/" $ SC.file "./build/index.html"
+        SC.get "/editor" $ SC.file "./build/index.html"
+
+        -- Rest APIs
+        SC.get "/newMeeting" $ VI.foo VI.serveMeetingId
     
 
 main :: IO()
